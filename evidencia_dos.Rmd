@@ -1,0 +1,318 @@
+---
+title: 'Evidencia 2: Proyecto Integrador'
+author: "Amy Vanesa Díaz García-A01656419"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+
+
+##    Coronavirus de otras especies que son similares a SARS-CoV-2
+
+**Calcular la longitud de las secuencias que incluyas.**
+
+**1. Apodemus chevrieri coronavirus**
+```{r}
+library("seqinr")
+
+apo<- read.fasta("C:/Users/tete_/OneDrive/Escritorio/Amy/ApodemusChevrieri.fasta")
+
+length(apo[[1]])
+```
+**2. Bat coronavirus**
+```{r}
+library("seqinr")
+
+bat<- read.fasta("C:/Users/tete_/OneDrive/Escritorio/Amy/bat.fasta")
+
+length(bat[[1]])
+```
+**3.Canine respiratory coronavirus**
+```{r}
+library("seqinr")
+
+canine<- read.fasta("C:/Users/tete_/OneDrive/Escritorio/Amy/Canine respiratory.fasta")
+
+length(canine[[1]])
+```
+**4.Duck coronavirus**
+```{r}
+library("seqinr")
+
+duck <- read.fasta("C:/Users/tete_/OneDrive/Escritorio/Amy/Duck.fasta")
+
+length(duck[[1]])
+```
+**5.Erinaceus hedgehog coronavirus**
+```{r}
+library("seqinr")
+
+erin<- read.fasta("C:/Users/tete_/OneDrive/Escritorio/Amy/Erinaceus.fasta")
+
+length(erin[[1]])
+```
+**6.Hypsugo bat coronavirus**
+```{r}
+library("seqinr")
+
+hyp<- read.fasta("C:/Users/tete_/OneDrive/Escritorio/Amy/Hypsugo bat.fasta")
+
+length(hyp[[1]])
+```
+**7.Lucheng Rn rat coronavirus**
+```{r}
+library("seqinr")
+
+luch<- read.fasta("C:/Users/tete_/OneDrive/Escritorio/Amy/Lucheng Rat.fasta")
+
+length(luch[[1]])
+```
+**8.Miniopterus fulignosus bat coronavirus**
+```{r}
+library("seqinr")
+
+mini<- read.fasta("C:/Users/tete_/OneDrive/Escritorio/Amy/Miniopterus bat.fasta")
+
+length(mini[[1]])
+```
+**9.Myotis ricketti bat coronavirus**
+```{r}
+library("seqinr")
+
+myo<- read.fasta("C:/Users/tete_/OneDrive/Escritorio/Amy/Myotis bat.fasta")
+
+length(myo[[1]])
+```
+**10.Night-heron coronavirus HKU19**
+```{r}
+library("seqinr")
+
+night<- read.fasta("C:/Users/tete_/OneDrive/Escritorio/Amy/Night-heron.fasta")
+
+length(night[[1]])
+```
+**11.Pheasant coronavirus**
+```{r}
+library("seqinr")
+
+phe<- read.fasta("C:/Users/tete_/OneDrive/Escritorio/Amy/Pheasant.fasta")
+
+length(phe[[1]])
+```
+**12.Pipistrellus abramus bat coronavirus**
+```{r}
+library("seqinr")
+
+pipi<- read.fasta("C:/Users/tete_/OneDrive/Escritorio/Amy/Pipistrellus bat.fasta")
+
+length(pipi[[1]])
+```
+**13.Porcine hemagglutinating encephalomyelitis virus**
+```{r}
+library("seqinr")
+
+porcine<- read.fasta("C:/Users/tete_/OneDrive/Escritorio/Amy/Porcine.fasta")
+
+length(porcine[[1]])
+```
+**14.Porcine epidemic diarrhea virus**
+```{r}
+library("seqinr")
+
+pdiarrhea<- read.fasta("C:/Users/tete_/OneDrive/Escritorio/Amy/Porcine diarrhea.fasta")
+
+length(pdiarrhea[[1]])
+```
+**15.Rabbit coronavirus**
+```{r}
+library("seqinr")
+
+rabbit<- read.fasta("C:/Users/tete_/OneDrive/Escritorio/Amy/Rabbit.fasta")
+
+length(rabbit[[1]])
+```
+**16.Sparrow coronavirus**
+```{r}
+library("seqinr")
+
+sparrow<- read.fasta("C:/Users/tete_/OneDrive/Escritorio/Amy/Sparrow.fasta")
+
+length(sparrow[[1]])
+```
+**17.Transmissible gastroenteritis virus**
+```{r}
+library("seqinr")
+
+trans<- read.fasta("C:/Users/tete_/OneDrive/Escritorio/Amy/Transmissible.fasta")
+
+length(trans[[1]])
+```
+**18.White-eye coronavirus HKU16**
+```{r}
+library("seqinr")
+
+wEye<- read.fasta("C:/Users/tete_/OneDrive/Escritorio/Amy/white-eye.fasta")
+
+length(wEye[[1]])
+```
+**19.Wigeon coronavirus**
+```{r}
+library("seqinr")
+
+wig<- read.fasta("C:/Users/tete_/OneDrive/Escritorio/Amy/Wigeon.fasta")
+
+length(wig[[1]])
+```
+**20.Yak coronavirus**
+```{r}
+library("seqinr")
+
+yak<- read.fasta("C:/Users/tete_/OneDrive/Escritorio/Amy/yak.fasta")
+
+length(yak[[1]])
+```
+
+
+**Crea una sola gráfica donde se comparen el número de bases de ADN que componen todas las variables del virus.**
+```{r}
+cuentas <- function(seq){
+  contadorA <-0
+  contadorT <-0
+  contadorC <-0
+  contadorG <-0
+  
+  nl <- length(seq)
+  
+  for(i in seq){
+    
+    if(i=="A" || i=="a"){
+      contadorA = contadorA + 1
+    }
+    else if(i=="T" || i=="t") {
+      contadorT = contadorT + 1
+    }
+    else if(i=="C" || i=="c") {
+      contadorC = contadorC + 1
+    }
+    else if(i=="G" || i=="g") {
+      contadorG = contadorG + 1
+    }
+  }
+  
+  vec<- c(contadorA,contadorT,contadorG, contadorC)
+  return(vec)
+}
+
+colorPalette<- c('#D3F2A2','#94E095','#6CC08A', '#4B9B81','#F89F7D', '#EB7F85','#CE6592','#A058A0','#FEDE9B', '#FAA376','#EF736C','#E34E6F','#D3FBD4', '#A4DBC2','#7ABCAF','#559C9E','#F7945D', '#F87A56','#F56255','#EE4C59')
+colorPalette1<- c('#D3F2A2','#94E095','#6CC08A', '#4B9B81','#F89F7D', '#EB7F85','#CE6592','#A058A0','#FEDE9B', '#FAA376')
+colorPalette2<- c('#EF736C','#E34E6F','#D3FBD4', '#A4DBC2','#7ABCAF','#559C9E','#F7945D', '#F87A56','#F56255','#EE4C59')
+
+
+virusNames1<-c("Apodemus_Chevrieri","Bat", "Canine respiratory", "Duck", "Erinaceus","Hypsugo bat","Lucheng Rat","Miniopterus bat", "Myotis bat","Night-heron")
+virusNames2<- c("Pheasant","Pipistrellus bat","Porcine","Porcine diarrhea","Rabbit", "Sparrow", "Transmissible gastroenteritis","white-eye","Wigeon","Yak")
+
+funG<- c(APO<-sapply(apo, cuentas),BAT<-sapply(bat, cuentas),CANIN<-sapply(canine, cuentas),DUCK<-sapply(duck, cuentas),ERIN<-sapply(erin, cuentas),HYP<-sapply(hyp, cuentas),LUNCH<-sapply(luch, cuentas),MINI<-sapply(mini, cuentas),MYO<-sapply(myo, cuentas),NIGHT<-sapply(night, cuentas),PHE<-sapply(phe, cuentas),PIPI<-sapply(pipi, cuentas),PORCINE<-sapply(porcine, cuentas),PDIARRHEA<-sapply(pdiarrhea, cuentas),RABBIT<-sapply(rabbit, cuentas),SPARROW<-sapply(sparrow, cuentas),TRANS<-sapply(trans, cuentas),WEYE<-sapply(wEye, cuentas),WIG<-sapply(wig, cuentas),YAK<-sapply(yak, cuentas))
+
+
+
+par(mar=c(4,3,0,1))
+virus<-barplot(matrix(c(funG), nrow=20, byrow=T), beside=T,  col = colorPalette, names.arg= c("A","T,","G", "C"))
+legend("topright", legend = virusNames1 , 
+     col = colorPalette1 ,bty = "n", pch=18 , pt.cex = 1, cex = 0.6, horiz = FALSE, inset = c(0.3, 0.001))
+legend("topright", legend = virusNames2 , 
+     col = colorPalette2 ,bty = "n", pch=18 , pt.cex = 1, cex = 0.6, horiz = FALSE, inset = c(0.05, 0.001))
+```
+
+
+**Interpretación**
+En la gráfica anterior se puede observar el código genético de 20 versiones de SARS-CoV-2 vistas en animales. De primera mano se puede observar que sobresalen el "canine, yak y sparrow". Los anteriores,cuentan con una cantidad mayor de timinas debido a que son especies diferentes en comparación con las diversas variantes de otras especies.
+
+**Agrega un análisis jerárquico global obtenido de las secuencias que se seleccionaron para estudiar.**
+```{r}
+library(Biostrings)
+library(seqinr)
+library(adegenet)
+library(ape)
+library(ggtree)
+library(DECIPHER)
+library(viridis)
+library(ggplot2)
+```
+```{r}
+ANIMALES <- c(  "NC_034972", "EF065511", "KX432213", "JF705860", "MK907287", "KX442564", "KF294380", "KJ473797", "KJ473806", "NC_016994", "MK423876", "KJ473820", "KY994645", "KX981440", "JN874560", "NC_016992", "KX499468", "JQ065044", "NC_016995", "MH810163")
+
+virus_sequences <- read.GenBank(ANIMALES)
+
+str(virus_sequences)
+
+attributes(virus_sequences)
+names(virus_sequences)
+attr(virus_sequences, "species")
+
+write.dna(virus_sequences,  
+          file ="virus_seqs.fasta", 
+          format = "fasta", 
+          append = FALSE, 
+          nbcol = 6, 
+          colsep = " ", 
+          colw = 10)
+
+virus_seq_not_align <- readDNAStringSet("virus_seqs.fasta", format = "fasta")
+
+virus_seq_not_align <- OrientNucleotides(virus_seq_not_align)
+
+virus_seq_align <- AlignSeqs(virus_seq_not_align)
+
+BrowseSeqs(virus_seq_align, highlight=0)
+
+writeXStringSet(virus_seq_align, file="virus_seq_align.fasta")
+
+virus_aligned <- read.alignment("virus_seq_align.fasta", format = "fasta")
+
+matriz_distancia <- dist.alignment(virus_aligned, matrix = "similarity")
+
+temp <- as.data.frame(as.matrix(matriz_distancia))
+table.paint(temp, cleg=0, clabel.row=.5, clabel.col=.5) + scale_color_viridis()
+
+virus_tree <- nj(matriz_distancia)
+class(virus_tree) 
+
+virus_tree <- ladderize(virus_tree)
+
+plot(virus_tree, cex = 0.6)
+title("A Novel Coronavirus from Patients with Pneumonia in China, 2019")
+```
+
+
+
+**Interpretación**
+
+Con el árbol filogenético presentado anteriormente podemos llegar a diversas conclusiones, una de ellas es que Canine respiratory coronavirus y Yak coronavirus son muy similares ya que estén dentro de la misma rama y en el mismo nivel podemos encontrar Porcine hemagglutinating encephalomyelitis virus. Algo muy interesante es que Pheasant coronavirus y Duck coronavirus son los únicos que comparten un ancestro en común que derivan en los diferentes códigos , pero aún así tienen una base igual.
+
+
+**Referencias bibliográficas**
+
+Haake C, Cook S, Pusterla N, Murphy B. Coronavirus Infections in Companion Animals: Virology, Epidemiology, Clinical and Pathologic Features. Viruses. 2020 Sep 13;12(9):1023. doi: 10.3390/v12091023. PMID: 32933150; PMCID: PMC7551689
+
+Li, C., Yang, Y., & Ren, L. (2020). Genetic evolution analysis of 2019 novel coronavirus and coronavirus from other species. Infection, genetics and evolution : journal of molecular epidemiology and evolutionary genetics in infectious diseases, 82, 104285. https://doi.org/10.1016/j.meegid.2020.104285
+
+**Link video**
+<https://youtu.be/sHrRzQqFGUg>
+
+## Citas paquetes de R
+
+```{r}
+citation("dplyr")
+citation("Biostrings")
+citation("seqinr")
+citation("adegenet")
+citation("ape")
+citation("phangorn")
+citation("phytools")
+citation("geiger")
+citation("BiocManager")
+citation("ggtree")
+citation("DECIPHER")
+citation("viridis")
+citation("ggplot2")
+```
